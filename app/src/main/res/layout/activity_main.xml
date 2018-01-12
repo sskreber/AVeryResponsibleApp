@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey">
+
+    <LinearLayout
+        android:id="@+id/horizontal_LinLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorGrey">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            android:background="@drawable/beer">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingLeft="@dimen/paddingOrMar_M"
+                android:paddingRight="@dimen/paddingOrMar_M"
+                android:paddingTop="@dimen/paddingOrMar_L"
+                android:text="@string/alcohol"
+                android:textColor="#000000"
+                android:textSize="@dimen/textSize_M"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingLeft="@dimen/paddingOrMar_M"
+                android:paddingRight="@dimen/paddingOrMar_M"
+                android:paddingBottom="@dimen/paddingOrMar_M"
+                android:text="@string/unlocked"
+                android:textColor="#00E676"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/alcohol_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingBottom="@dimen/paddingOrMar_M"
+                android:text="@string/alcohol_a_number"
+                android:textColor="#000000"
+                android:textSize="@dimen/textSize_L" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_S"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="addThreeForAlcohol"
+                android:text="@string/strong"
+                android:background="@drawable/mybutton2"/>
+
+            <ImageButton
+                android:src="@drawable/undo_s"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_L"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="subtractThreeForAlcohol"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_S"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="addOneForAlcohol"
+                android:text="@string/weak"
+                android:background="@drawable/mybutton2"/>
+
+            <ImageButton
+                android:src="@drawable/undo_s"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_L"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="subtractOneForAlcohol"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            tools:context=".MainActivity"
+            android:background="@drawable/water">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingLeft="@dimen/paddingOrMar_M"
+                android:paddingRight="@dimen/paddingOrMar_M"
+                android:paddingTop="@dimen/paddingOrMar_L"
+                android:text="@string/soft_drinks"
+                android:textColor="#000000"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingLeft="@dimen/paddingOrMar_M"
+                android:paddingRight="@dimen/paddingOrMar_M"
+                android:paddingBottom="@dimen/paddingOrMar_M"
+                android:text="@string/needed"
+                android:textColor="#BF360C"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/soft_drink_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingBottom="@dimen/paddingOrMar_M"
+                android:text="@string/soft_drinks_a_number"
+                android:textColor="#000000"
+                android:textSize="@dimen/textSize_L"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_S"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="subtractTwoForSoftDrink"
+                android:text="@string/water"
+                android:background="@drawable/mybutton"/>
+
+            <ImageButton
+                android:src="@drawable/undo_s"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_L"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="addTwoForSoftDrink"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_S"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="subtractOneForSoftDrink"
+                android:text="@string/soft_drink"
+                android:background="@drawable/mybutton"/>
+
+            <ImageButton
+                android:src="@drawable/undo_s"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/paddingOrMar_L"
+                android:layout_marginLeft="@dimen/paddingOrMar_XL"
+                android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:onClick="addOneForSoftDrink"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:onClick="resetScore"
+        android:text="@string/reset"
+        android:textAllCaps="true"
+        android:background="@color/colorSpecialButton"/>
+
+</RelativeLayout>
