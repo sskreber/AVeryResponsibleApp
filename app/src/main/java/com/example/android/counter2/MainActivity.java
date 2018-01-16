@@ -13,43 +13,50 @@ import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    static final String ALCOHOL_SCORE = "scoreAlcohol";
-    static final String SOFT_DRINK_SCORE = "scoreSoftDrink";
+    // declare and initialize global variables
+
+    static final String STATE_ALCOHOL_SCORE = "scoreAlcohol";
+    static final String STATE_SOFT_DRINK_SCORE = "scoreSoftDrink";
 
     /**
      * Tracks score for Team A.
      */
-    int scoreAlcohol = 0;
+    int scoreAlcohol;
     /**
      * Tracks score for Team B.
      */
-    int scoreSoftDrink = 0;
-
+    int scoreSoftDrink;
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
+        //Save user's current scores.
+        savedInstanceState.putInt(STATE_ALCOHOL_SCORE, scoreAlcohol);
+        savedInstanceState.putInt(STATE_SOFT_DRINK_SCORE, scoreSoftDrink);
+        // Calling on the superclass to save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
-        savedInstanceState.putInt(ALCOHOL_SCORE, scoreAlcohol);
-        savedInstanceState.putInt(SOFT_DRINK_SCORE, scoreSoftDrink);
-    }
-
-    @Override
-    public void onRestoreInstanceState(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onRestoreInstanceState(savedInstanceState, persistentState);
-        scoreAlcohol = savedInstanceState.getInt(ALCOHOL_SCORE);
-        scoreSoftDrink = savedInstanceState.getInt(SOFT_DRINK_SCORE);
-        displayForAlcohol(scoreAlcohol);
-        displayForSoftDrink(scoreSoftDrink);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        displayForAlcohol (scoreAlcohol);
+        if (savedInstanceState != null) {
+            setContentView(R.layout.activity_main);
+            scoreAlcohol = savedInstanceState.getInt(STATE_ALCOHOL_SCORE);
+            scoreSoftDrink = savedInstanceState.getInt(STATE_SOFT_DRINK_SCORE);
+        } else
+            setContentView(R.layout.activity_main);
+            scoreAlcohol = 0;
+            scoreSoftDrink = 0;
     }
 
-
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        scoreAlcohol = savedInstanceState.getInt(STATE_ALCOHOL_SCORE);
+        scoreSoftDrink = savedInstanceState.getInt(STATE_SOFT_DRINK_SCORE);
+        displayForAlcohol (scoreAlcohol);
+        displayForSoftDrink(scoreSoftDrink);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
