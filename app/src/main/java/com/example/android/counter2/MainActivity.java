@@ -8,33 +8,46 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.example.android.counter2.R;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
-    // declare and initialize global variables
+    // Declares global constants, setting the two variables storing a total score each as such.
 
     static final String STATE_ALCOHOL_SCORE = "scoreAlcohol";
     static final String STATE_SOFT_DRINK_SCORE = "scoreSoftDrink";
 
     /**
-     * Tracks score for Team A.
+     * Initializes a variable that tracks the total score of alcohol already consumed by user.
+     * This variable will later on be programmed not to go below 0.
      */
+
     int scoreAlcohol;
+
     /**
-     * Tracks score for Team B.
+     * Initializes a variable that tracks the total score of NEEDED soft drink consumption for user.
+     * This variable CAN go below zero (user can drink some soft drinks ahead and thus be rewarded with less
+     * soft drink needed to be drank points with alcohol consumption.
      */
+
     int scoreSoftDrink;
+
+    /**
+     * Pulls out the value for the two total scores, alcohol consumption and needed soft drink consumption,
+     * and saves their values.
+     */
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        //Save user's current scores.
+        // Saves user's current scores.
         savedInstanceState.putInt(STATE_ALCOHOL_SCORE, scoreAlcohol);
         savedInstanceState.putInt(STATE_SOFT_DRINK_SCORE, scoreSoftDrink);
-        // Calling on the superclass to save the view hierarchy state
+        // Calls on the superclass to save the view hierarchy state.
         super.onSaveInstanceState(savedInstanceState);
     }
+
+    // Continues or starts activity after checking if there was an ongoing saved activity to reload or not.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
             scoreSoftDrink = 0;
     }
 
+    // Gets the values of the two total scores for the saved states and displays those instead of the zero default value.
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -58,151 +73,145 @@ public class MainActivity extends AppCompatActivity {
         displayForSoftDrink(scoreSoftDrink);
     }
 
+    // Inflates the menu.
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Increase the score for Team A by 1 point.
-     */
+    // Increases the score for alcohol consumed by 1 point.
+
     public void addOneForAlcohol(View v) {
         scoreAlcohol = scoreAlcohol + 1;
         scoreSoftDrink = scoreSoftDrink + 1;
         displayForAlcohol(scoreAlcohol);
         displayForSoftDrink(scoreSoftDrink);
+        if (scoreAlcohol > 6 && scoreAlcohol < 11 && scoreAlcohol % 2 == 0) {
+            Toast.makeText(getApplicationContext(), "Ouch! Too much alcohol!", Toast.LENGTH_SHORT).show();
+        }
+        else if (scoreAlcohol > 11 && scoreAlcohol % 2 == 0) {
+            Toast.makeText(getApplicationContext(), "You can't drive today!", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    /**
-     * Increase the score for Team A by 3 points.
-     */
+    // Increases the score for alcohol consumed by 3 points.
+
     public void addThreeForAlcohol(View v) {
         scoreAlcohol = scoreAlcohol + 3;
         scoreSoftDrink = scoreSoftDrink + 3;
         displayForAlcohol(scoreAlcohol);
         displayForSoftDrink(scoreSoftDrink);
+        if (scoreAlcohol > 6 && scoreAlcohol < 11 && scoreAlcohol % 2 == 0) {
+            Toast.makeText(getApplicationContext(), "Ouch! Too much alcohol!", Toast.LENGTH_SHORT).show();
+        }
+        else if (scoreAlcohol > 11 && scoreAlcohol % 2 == 0) {
+            Toast.makeText(getApplicationContext(), "You can't drive today!", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    /**
-     * Decrease the score for Team A by 1 point.
-     */
+    // Decreases the score for alcohol consumed by 1 point.
 
     public void subtractOneForAlcohol(View v) {
         if (scoreAlcohol > 0) {
             scoreAlcohol = scoreAlcohol - 1;
             scoreSoftDrink = scoreSoftDrink - 1;
-            displayForAlcohol(scoreAlcohol);
-            displayForSoftDrink(scoreSoftDrink);
         }else {
             scoreAlcohol = 0;
-            scoreSoftDrink = scoreSoftDrink;
-            displayForAlcohol(scoreAlcohol);
-            displayForSoftDrink(scoreSoftDrink);
         }
+        displayForAlcohol(scoreAlcohol);
+        displayForSoftDrink(scoreSoftDrink);
     }
 
-    /**
-     * Decrease the score for Team A by 3 points.
-     */
+    // Decreases the score for alcohol consumed by 3 points.
 
     public void subtractThreeForAlcohol(View v) {
-        if (scoreAlcohol > 0) {
+        if (scoreAlcohol >= 3) {
             scoreAlcohol = scoreAlcohol - 3;
             scoreSoftDrink = scoreSoftDrink - 3;
-            displayForAlcohol(scoreAlcohol);
-            displayForSoftDrink(scoreSoftDrink);
-        }else {
-            scoreAlcohol = 0;
-            scoreSoftDrink = scoreSoftDrink;
-            displayForAlcohol(scoreAlcohol);
-            displayForSoftDrink(scoreSoftDrink);
         }
+        displayForAlcohol(scoreAlcohol);
+        displayForSoftDrink(scoreSoftDrink);
     }
 
     /**
-     * Displays the given score for Team A.
+     * Displays the total score for the alcohol consumed (in made-up units).
+     * Signifies the amount of alcohol user already consumed.
+     * User should keep it low.
      */
     public void displayForAlcohol(int alcScore) {
         TextView scoreView = (TextView) findViewById(R.id.alcohol_score);
         scoreView.setText(String.valueOf(alcScore));
-        if (alcScore > 6 && alcScore < 11 && alcScore % 2 == 0) {
-            Toast.makeText(getApplicationContext(), "Ouch! Too much alcohol!", Toast.LENGTH_SHORT).show();
-        }
-        else if (alcScore > 11 && alcScore % 2 == 0) {
-            Toast.makeText(getApplicationContext(), "You can't drive today!", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
+    // Increases the score for needed soft drink consumption by 1 point.
 
-    /**
-     * Increase the score for Team B by 1 point.
-     */
     public void addOneForSoftDrink(View v) {
         scoreSoftDrink = scoreSoftDrink + 1;
         displayForSoftDrink(scoreSoftDrink);
     }
 
-    /**
-     * Increase the score for Team B by 2 points.
-     */
+
+    // Increases the score for alcohol consumed by 2 points.
+
     public void addTwoForSoftDrink(View v) {
         scoreSoftDrink = scoreSoftDrink + 2;
         displayForSoftDrink(scoreSoftDrink);
     }
 
-    /**
-     * Decrease the score for Team B by 1 point.
-     */
+
+    // Decreases the score for needed soft drink consumption by 1 point.
 
     public void subtractOneForSoftDrink(View v) {
         scoreSoftDrink = scoreSoftDrink - 1;
         displayForSoftDrink(scoreSoftDrink);
+        if (scoreSoftDrink > 6 && scoreSoftDrink < 11 && scoreSoftDrink % 2 == 1) {
+            Toast.makeText(getApplicationContext(), "More water, sailor!", Toast.LENGTH_SHORT).show();
+        }
+        else if (scoreSoftDrink > 11 && scoreSoftDrink % 2 == 1) {
+            Toast.makeText(getApplicationContext(), "You're still dehydrated", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    /**
-     * Decrease the score for Team B by 2 points.
-     */
+
+    // Decrease the score for needed soft drink consumption by 2 points.
+
 
     public void subtractTwoForSoftDrink(View v) {
         scoreSoftDrink = scoreSoftDrink - 2;
         displayForSoftDrink(scoreSoftDrink);
+        if (scoreSoftDrink > 6 && scoreSoftDrink < 11 && scoreSoftDrink % 2 == 1) {
+            Toast.makeText(getApplicationContext(), "More water, sailor!", Toast.LENGTH_SHORT).show();
+        }
+        else if (scoreSoftDrink > 11 && scoreSoftDrink % 2 == 1) {
+            Toast.makeText(getApplicationContext(), "You're still dehydrated", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
-     * Displays the given score for Team B.
+     * Displays the total score for soft drinks (in made-up units).
+     * Signifies the amount of soft drinks user still needs to drink.
+     * User should keep it low.
      */
+
     public void displayForSoftDrink(int waterScore) {
         TextView scoreView = (TextView) findViewById(R.id.soft_drink_score);
         scoreView.setText(String.valueOf(waterScore));
-        if (waterScore > 6 && waterScore < 11 && waterScore % 2 == 1) {
-            Toast.makeText(getApplicationContext(), "Drink more water!", Toast.LENGTH_SHORT).show();
-        }
-        else if (waterScore > 11 && waterScore % 2 == 1) {
-            Toast.makeText(getApplicationContext(), "You're dehydrated", Toast.LENGTH_SHORT).show();
-        }
     }
 
+    // Resets the score for both the alcohol and soft drink score to 0.
 
-    /**
-     * Resets the score for both teams to 0.
-     */
     public void resetScore(View v) {
         scoreAlcohol = 0;
         scoreSoftDrink = 0;

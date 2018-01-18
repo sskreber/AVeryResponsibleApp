@@ -8,43 +8,43 @@
     <LinearLayout
         android:id="@+id/horizontal_LinLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/colorGrey">
+        android:layout_height="match_parent"
+        android:background="@color/colorGrey"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
+            android:background="@drawable/beer"
             android:orientation="vertical"
-            tools:context=".MainActivity"
-            android:background="@drawable/beer">
+            tools:context=".MainActivity">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:paddingLeft="@dimen/paddingOrMar_M"
                 android:paddingRight="@dimen/paddingOrMar_M"
                 android:paddingTop="@dimen/paddingOrMar_L"
                 android:text="@string/alcohol"
-                android:textColor="#000000"
-                android:textSize="@dimen/textSize_M"/>
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textSize_M"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:textStyle="bold"
                 android:gravity="center"
+                android:paddingBottom="@dimen/paddingOrMar_M"
                 android:paddingLeft="@dimen/paddingOrMar_M"
                 android:paddingRight="@dimen/paddingOrMar_M"
-                android:paddingBottom="@dimen/paddingOrMar_M"
                 android:text="@string/unlocked"
-                android:textColor="#00E676"
-                android:textSize="24sp"/>
+                android:textColor="@color/colorGreen"
+                android:textSize="@dimen/textSize_M"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/alcohol_score"
@@ -54,7 +54,7 @@
                 android:gravity="center"
                 android:paddingBottom="@dimen/paddingOrMar_M"
                 android:text="@string/alcohol_a_number"
-                android:textColor="#000000"
+                android:textColor="@color/colorBlack"
                 android:textSize="@dimen/textSize_L" />
 
             <Button
@@ -63,19 +63,19 @@
                 android:layout_marginBottom="@dimen/paddingOrMar_S"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:background="@drawable/mybutton2"
                 android:onClick="addThreeForAlcohol"
-                android:text="@string/strong"
-                android:background="@drawable/mybutton2"/>
+                android:text="@string/strong" />
 
             <ImageButton
-                android:src="@drawable/undo_s"
-                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginBottom="@dimen/paddingOrMar_L"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
-                android:onClick="subtractThreeForAlcohol"/>
+                android:onClick="subtractThreeForAlcohol"
+                android:src="@drawable/undo_s" />
 
             <Button
                 android:layout_width="match_parent"
@@ -83,19 +83,19 @@
                 android:layout_marginBottom="@dimen/paddingOrMar_S"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:background="@drawable/mybutton2"
                 android:onClick="addOneForAlcohol"
-                android:text="@string/weak"
-                android:background="@drawable/mybutton2"/>
+                android:text="@string/weak" />
 
             <ImageButton
-                android:src="@drawable/undo_s"
-                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginBottom="@dimen/paddingOrMar_L"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
-                android:onClick="subtractOneForAlcohol"/>
+                android:onClick="subtractOneForAlcohol"
+                android:src="@drawable/undo_s" />
 
         </LinearLayout>
 
@@ -108,37 +108,37 @@
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2"
+            android:background="@drawable/water"
             android:orientation="vertical"
-            tools:context=".MainActivity"
-            android:background="@drawable/water">
+            tools:context=".MainActivity">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:paddingLeft="@dimen/paddingOrMar_M"
                 android:paddingRight="@dimen/paddingOrMar_M"
                 android:paddingTop="@dimen/paddingOrMar_L"
                 android:text="@string/soft_drinks"
-                android:textColor="#000000"
-                android:textSize="24sp"/>
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textSize_M"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="serif"
-                android:textStyle="bold"
                 android:gravity="center"
+                android:paddingBottom="@dimen/paddingOrMar_M"
                 android:paddingLeft="@dimen/paddingOrMar_M"
                 android:paddingRight="@dimen/paddingOrMar_M"
-                android:paddingBottom="@dimen/paddingOrMar_M"
                 android:text="@string/needed"
-                android:textColor="#BF360C"
-                android:textSize="24sp"/>
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/textSize_M"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/soft_drink_score"
@@ -148,8 +148,8 @@
                 android:gravity="center"
                 android:paddingBottom="@dimen/paddingOrMar_M"
                 android:text="@string/soft_drinks_a_number"
-                android:textColor="#000000"
-                android:textSize="@dimen/textSize_L"/>
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textSize_L" />
 
             <Button
                 android:layout_width="match_parent"
@@ -157,19 +157,19 @@
                 android:layout_marginBottom="@dimen/paddingOrMar_S"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:background="@drawable/mybutton"
                 android:onClick="subtractTwoForSoftDrink"
-                android:text="@string/water"
-                android:background="@drawable/mybutton"/>
+                android:text="@string/water" />
 
             <ImageButton
-                android:src="@drawable/undo_s"
-                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginBottom="@dimen/paddingOrMar_L"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
-                android:onClick="addTwoForSoftDrink"/>
+                android:onClick="addTwoForSoftDrink"
+                android:src="@drawable/undo_s" />
 
             <Button
                 android:layout_width="match_parent"
@@ -177,19 +177,19 @@
                 android:layout_marginBottom="@dimen/paddingOrMar_S"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
+                android:background="@drawable/mybutton"
                 android:onClick="subtractOneForSoftDrink"
-                android:text="@string/soft_drink"
-                android:background="@drawable/mybutton"/>
+                android:text="@string/soft_drink" />
 
             <ImageButton
-                android:src="@drawable/undo_s"
-                android:layout_gravity="end"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginBottom="@dimen/paddingOrMar_L"
                 android:layout_marginLeft="@dimen/paddingOrMar_XL"
                 android:layout_marginRight="@dimen/paddingOrMar_XL"
-                android:onClick="addOneForSoftDrink"/>
+                android:onClick="addOneForSoftDrink"
+                android:src="@drawable/undo_s" />
 
         </LinearLayout>
 
@@ -197,14 +197,14 @@
 
     <Button
         android:id="@+id/reset"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="@dimen/paddingOrMar_XXL"
+        android:background="@drawable/mybutton3"
         android:onClick="resetScore"
         android:text="@string/reset"
-        android:textAllCaps="true"
-        android:background="@color/colorSpecialButton"/>
+        android:textAllCaps="true" />
 
 </RelativeLayout>
