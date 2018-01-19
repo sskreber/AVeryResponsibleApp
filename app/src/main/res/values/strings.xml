@@ -1,18 +1,14 @@
 <resources>
     <string name="app_name">Score Keeper</string>
     <string name="action_settings">Settings</string>
-
     <string name="alcohol">Alcohol lvl</string>
     <string name="soft_drinks">Water units</string>
     <string name="unlocked">unlocked</string>
     <string name="needed">needed</string>
     <string name="strong">Strong (1 dl)</string>
     <string name="weak">Weak (1 dl)</string>
-
     <string name="water">Water (1 dl)</string>
     <string name="soft_drink">Soft drink (1 dl)</string>
-
-    <string name="message">You\'re okay!</string>
     <string name="reset">reset</string>
     <string name="alcohol_a_number">0</string>
     <string name="soft_drinks_a_number">0</string>
