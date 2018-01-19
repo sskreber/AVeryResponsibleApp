@@ -5,9 +5,10 @@
     <color name="colorAccent">#FF4081</color>
     <color name="ButtonA">#E57373</color>
     <color name="ButtonB">#BBDEFB</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGreen">#00E676</color>
     <color name="colorGrey">#9E9E9E</color>
     <color name="colorOrange">#FF8F00</color>
-    <color name="colorBlack">#000000</color>
     <color name="colorRed">#BF360C</color>
-    <color name="colorGreen">#00E676</color>
+
 </resources>
