@@ -1,0 +1,22 @@
+/**
+* This app is designed to track the user's alcohol and water/soft drink intake. 
+* Water is used to refer to both water and soft drinks here, as the component of water is the vital point here. 
+* The soft drink button has a lower score than the water button, the latter being "more concentrated water". 
+* It is also designed to keep the user hydrated. Each alcohol intake incurs a score rise on the water side too, 
+* as the latter keeps track of the water intake "needed". 
+* The user is complimented, advised or warned (in the form of toast messages) on each button press based on their overall alcohol score,
+* their overall water score, and on the proportion of the two. 
+*
+* Very high alcohol intake trigger serious warning messages no matter the water intake. 
+* (=User drank way too much alcohol.)
+* High alcohol intake and high water "needed" trigger somewhat less serious warning messages and advices. 
+* (=User drank a lot, and has a high water "debt".)
+* High alcohol intake and low water intake "needed" trigger advices on drinking more water, not alcohol. 
+* (User drank a lot of alcohol, but a lot of water too - their water "debt" is low.)
+* Low alcohol intake and high water intake "needed" trigger compliments and, as the water intake itself increases, humorous lines.
+(= User drinks little to no alcohol, and drinks a lot of water.) 
+* Lines for the latter case: "With great power comes great responsibility.", "Not judging you. Honest."
+
+* There is an "UNDO" button for each intake button (for both alcohol and water), 
+* to take back an added score if drinking button was pressed by accident. This is a drinking app after all.
+*/
